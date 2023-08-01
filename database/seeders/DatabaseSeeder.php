@@ -28,20 +28,10 @@ class DatabaseSeeder extends Seeder
                 "hobbies" => $faker->text(),
                 "instagram" => $faker->text(),
                 "phone" => $faker->phoneNumber(),
-                "photo" => $faker->imageUrl(360, 360, 'animals', true, 'dogs', true, 'jpg'),
+                "photo" => 'wesurrenderofthisexam.jpg',
                 "wallet" => 0
             ]);
         }
-        // User::create([
-        //     "photo" => "",
-        //     "name" => "William Suryadharma",
-        //     "hobbies" =>  "Tes"
-        // ]);
 
-        // $table->string('gender');
-        // $table->string('hobbies');
-        // $table->string('instagram');
-        // $table->string('phone');
-        // $table->string('photo');
     }
 }

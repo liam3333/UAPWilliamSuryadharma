@@ -32,7 +32,7 @@ class RegisterController extends Controller
             'password' => 'required'
         ]);
 
-        $validate['photo'] = $request->file('photo')->store('hobbies');
+        $validate['photo'] = $request->file('photo')->store('');
         $validate['password'] = bcrypt($validate['password']);
 
         if($request->nominal < 100000) {

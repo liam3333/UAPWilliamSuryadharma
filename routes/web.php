@@ -26,10 +26,10 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::post('/login', [RegisterController::class, 'login']);
 Route::get('/logout', [RegisterController::class, 'logout']);
 
-Route::get('/home', [HomeController::class, 'home']);
+Route::get('/home', [HomeController::class, 'home'])->middleware('auth');
 Route::post('/filter', [HomeController::class, 'filter']);
-Route::get('/wishlist', [HomeController::class, 'wishlist']);
-Route::get('/communicate', [HomeController::class, 'communicate']);
+Route::get('/wishlist', [HomeController::class, 'wishlist'])->middleware('auth');
+Route::get('/communicate', [HomeController::class, 'communicate'])->middleware('auth');
 Route::put('/top-up', [HomeController::class, 'topup']);
 
 Route::post('/thumb', [ThumbController::class, 'thumb']);
