@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class RegisterController extends Controller
 {
     public function register() {
-        $price = 100000;
+        $price = mt_rand(100000, 150000);
 
 
         return view('register', compact('price'));
@@ -24,9 +24,9 @@ class RegisterController extends Controller
             'name' => 'required',
             'gender' => 'required',
             'hobbies' => 'required',
-            'instagram' => 'required',
-            'phone' => 'required|regex:/^[0-9]+$/',
-            'photo' => 'required|image|file',
+            'instagram' => 'required|url',
+            'phone' => 'required|numeric',
+            'photo' => 'required|image|file|max:2048',
             'wallet' => 'required',
             'nominal' => 'required',
             'password' => 'required'

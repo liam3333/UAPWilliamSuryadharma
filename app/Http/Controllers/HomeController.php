@@ -60,4 +60,14 @@ class HomeController extends Controller
         return view('communicate', compact('users'));
     }
 
+    public function topup(Request $request) {
+        $user = User::find(auth()->user()->id);
+
+        // dd('tes');
+
+        $user->wallet = $user->wallet + $request->wallet;
+        $user->update();
+
+        return redirect('/home');
+    }
 }

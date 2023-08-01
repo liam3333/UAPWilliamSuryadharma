@@ -30,5 +30,6 @@ Route::get('/home', [HomeController::class, 'home']);
 Route::post('/filter', [HomeController::class, 'filter']);
 Route::get('/wishlist', [HomeController::class, 'wishlist']);
 Route::get('/communicate', [HomeController::class, 'communicate']);
+Route::put('/top-up', [HomeController::class, 'topup']);
 
 Route::post('/thumb', [ThumbController::class, 'thumb']);

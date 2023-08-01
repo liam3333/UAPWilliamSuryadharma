@@ -41,6 +41,45 @@
         </body>
         <h1 class="text-3xl font-bold mb-4">Hello, {{ $auth->name }}</h1>
 
+        <div class="d-flex justify-content-end align-items-center bg-secondary px-3 py-2 my-3 rounded-lg">
+            <h1 class="text-md text-white mb-0 me-3">
+                Your Wallet: {{ auth()->user()->wallet }}
+            </h1>
+            <button data-bs-target="#staticModal" data-bs-toggle="modal" class="btn btn-danger px-3 py-2">
+                Top Up
+            </button>
+        </div>
+        
+        <!-- Main modal -->
+        <div class="modal fade" id="staticModal" tabindex="-1" aria-hidden="true">
+            <form action="/top-up" method="post">
+                @csrf
+                @method('put')
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <!-- Modal header -->
+                        <div class="modal-header">
+                            <h3 class="modal-title">Static modal</h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="input-group mb-3">
+                                <input type="number" id="Qty" value="0" class="form-control" name="wallet">
+                                <button onclick="addAmount()" class="btn btn-danger text-danger" type="button">+</button>
+                            </div>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary text-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary text-primary">Top Up</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+
         <div class="grid grid-cols-2 gap-4">
             @foreach($users as $user)
             <div class="bg-white rounded-lg shadow-md p-4">
@@ -63,4 +102,11 @@
         </div>
     </div>
 </body>
+
+<script>
+    function addAmount() {
+        var amount = document.getElementById('Qty');
+        amount.value = parseInt(amount.value) + 100;
+    };
+</script>
 @endsection
