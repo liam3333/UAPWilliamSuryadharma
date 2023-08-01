@@ -7,8 +7,10 @@
         <nav>
           <ul class="flex space-x-4">
             @if(auth()->check())
-              <li><a href="#" class="hover:text-yellow-400">Home</a></li>
-              <li><a href="#" class="hover:text-yellow-400">About</a></li>
+              <li><a href="/home" class="hover:text-yellow-400">Home</a></li>
+              {{-- <li><a href="/friend" class="hover:text-yellow-400">Friends</a></li> --}}
+              <li><a href="/wishlist" class="hover:text-yellow-400">Wishlist</a></li>
+              <li><a href="/communicate" class="hover:text-yellow-400">Communicate</a></li>
               <li><a href="/logout" class="hover:text-yellow-400">Logout</a></li>
             @else
               <li><a href="/register" class="text-white">Register</a></li>

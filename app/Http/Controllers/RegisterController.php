@@ -19,23 +19,6 @@ class RegisterController extends Controller
         return view('register', compact('price'));
     }
 
-    // public function store(Request $request) {
-    //     $validate = $request->validate([
-    //         'gender' => 'required',
-    //         'hobbies' => 'required',
-    //         'instagram' => 'required',
-    //         'phone' => 'required',
-    //         'photo' => 'required|image|file',
-    //         'password' => 'required'
-    //     ]);
-
-    //     $validate['photo'] = $request->file('photo')->store('hobby');
-    //     $validate['password'] = bcrypt($validate['password']);
-    //     User::create($validate);
-
-    //     return redirect('/login')->with('registerSuccess', 'You success register');
-    // }
-
     public function store(Request $request) {
         $validate = $request->validate([
             'name' => 'required',

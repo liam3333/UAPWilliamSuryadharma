@@ -27,5 +27,8 @@ Route::post('/login', [RegisterController::class, 'login']);
 Route::get('/logout', [RegisterController::class, 'logout']);
 
 Route::get('/home', [HomeController::class, 'home']);
+Route::post('/filter', [HomeController::class, 'filter']);
+Route::get('/wishlist', [HomeController::class, 'wishlist']);
+Route::get('/communicate', [HomeController::class, 'communicate']);
 
 Route::post('/thumb', [ThumbController::class, 'thumb']);

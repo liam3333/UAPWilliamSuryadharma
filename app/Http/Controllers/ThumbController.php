@@ -13,11 +13,21 @@ class ThumbController extends Controller
             return view('register')->with('message', 'You has not registered!');
         }
 
+        $gender = $request->randomGender;
+        if($gender == 'P') {
+            $male = auth()->user()->id;
+            $female = $request->randomID;
+        } else if($gender == 'L') {
+            $male = $request->randomID;
+            $female = auth()->user()->id;
+        }
+        
         // $gender = $request->randomGender;
         $user1 = auth()->user()->id;
         $user2 = $request->randomID;
+        
 
-        $thumb = Thumb::where('user1_id', $user1)->where('user2_id', $user2)->first();
+        $thumb = Thumb::where('user1_id', $user1)->where('user2_id', $user2)->where('user2_id', $user1)->first();
 
         // Kalau belum ada datanya
         if(!$thumb) {
@@ -30,7 +40,7 @@ class ThumbController extends Controller
         } 
 
         // Kalau ada datanya
-        if ($thumb !== null && $thumb->user1_status != "Thumb") {
+        if ($thumb !== null) {
             $thumb->user1_status = "Thumb";
             $thumb->user2_status = "Thumb";
 
